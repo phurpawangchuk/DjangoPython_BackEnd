@@ -1,0 +1,67 @@
+python manage.py runserver //in root dir
+
+http://127.0.0.1:8000/api/v1/posts
+
+//CRearte Project
+django-admin startproject Project_Name (dmis)
+cd Project_Name
+
+//Create Project inside app
+python manage.py startapp posts
+python manage.py startapp users
+python manage.py startapp blogs
+
+python manage.py runserver
+
+//structure
+repositories
+services
+serializers [DTO of Request/Response]
+models
+views [controller]
+
+
+#python3 manage.py startproject my-project-name
+
+#cd my-project-name
+#python3  manage.py startapp my-app
+
+
+#python3 -m pip install Django
+
+
+#Running program
+python3 manage.py runserver
+
+#To install all dependency
+#pip install -r requirements.txt
+
+#To make migration
+python manage.py makemigrations
+
+#To migrate
+python manage.py migrate
+
+#To migrate seed
+python manage.py seed
+
+
+brew install redis in the Laptop
+
+python manage.py migrate posts zero --fake
+python manage.py migrate posts --fake-initial
+
+
+python manage.py migrate reviews zero --fake
+python manage.py migrate reviews --fake-initial
+
+//Add package
+Pip install packageName
+
+//adding pip to requirement
+Pip freeze > requirement.txt
+
+
+//TO keep track of history
+pip install django-simple-history
+Example: posts.models import Post

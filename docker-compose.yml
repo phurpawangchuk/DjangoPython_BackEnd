@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  redis:
+    image: redis
+
+  db:
+    image: postgres
+    environment:
+      POSTGRES_DB: inkdb
+      POSTGRES_USER: inkadmin
+      POSTGRES_PASSWORD: securepassword
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    ports:
+      - "5432:5432"
+
+  pgadmin:
+    image: dpage/pgadmin4
+    ports:
+      - "5050:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ink@inception.com
+      PGADMIN_DEFAULT_PASSWORD: inkadmin
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:
