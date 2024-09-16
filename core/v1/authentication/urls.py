@@ -9,7 +9,7 @@ from .views import CurrentUserView, UserLoginView, UserRegisterView
 
 router = routers.OptionalSlashRouter()
 
-app_name = "auth"
+# app_name = "auth"
 
 urlpatterns = [
     path("auth/register", UserRegisterView.as_view(), name="register"),

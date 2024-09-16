@@ -149,7 +149,7 @@ USE_TZ = True
 STATIC_URL = "static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
-#   CORS
+# CORS
 if not env.bool("DJANGO_CORS_ALLOW_ALL_ORIGINS", default=False):
     CORS_ALLOW_ALL_ORIGINS = False
     CORS_ALLOWED_ORIGINS = env.list(

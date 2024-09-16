@@ -1,9 +1,7 @@
-from core.utils.helpers import routers
+from django.urls import path
+from .views import BlogView
 
-from . import views
-
-router = routers.OptionalSlashRouter()
-
-app_name = "blogs"
-# router.register("", views.AuthViewSet, basename="auth")
-urlpatterns = router.urls
+urlpatterns = [
+    path("blogs", BlogView.as_view(), name="blog-create"),
+    path("blogs/<str:blog_id>", BlogView.as_view(), name="blog-update-delete"),
+]

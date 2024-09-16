@@ -10,6 +10,8 @@ from ..services import PostService
 
 injector = Injector([AppModule()])
 
+from django.core.paginator import Paginator
+
 
 class PostView(APIView):
     permission_classes = [IsAuthenticated]
@@ -20,10 +22,10 @@ class PostView(APIView):
         self.post_service = injector.get(PostService)
 
     def get_permissions(self):
-        # if self.request.method == "GET":
-        return [AllowAny()]
+        if self.request.method == "GET":
+            return [AllowAny()]
 
-        # return [IsAuthenticated()]
+        return [IsAuthenticated()]
 
     def get(self, request, post_id=None):
         if request.path.endswith("/history/"):
@@ -41,9 +43,8 @@ class PostView(APIView):
             return Response(post, status=status.HTTP_200_OK)
         else:
             details = self.post_service.get_posts(request)
-            data = formatPaginatedData(details)
-
-            return Response(data, status=status.HTTP_200_OK)
+            response = formatPaginatedData(details)
+            return Response(response, status=status.HTTP_200_OK)
 
     def post(self, request):
         data = self.post_service.create_post(request.data)

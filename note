@@ -65,3 +65,9 @@ Pip freeze > requirement.txt
 //TO keep track of history
 pip install django-simple-history
 Example: posts.models import Post
+
+pip install Pillow
+
+//Add module in the util as injector is used
+
+
